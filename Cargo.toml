@@ -6,7 +6,7 @@ license = "Apache-2.0"
 
 [dependencies]
 clap = { version = "4.5.49", features = ["derive"] }
-rusqlite = { version = "0.37.0", features = ["bundled"] }
+rusqlite = "0.37.0"
 
 [profile.release]
 strip = "symbols"
