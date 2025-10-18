@@ -1,5 +1,7 @@
 # koboexport
 
+[![Test](https://github.com/eudoxia0/koboexport/actions/workflows/check.yaml/badge.svg)](https://github.com/eudoxia0/koboexport/actions/workflows/check.yaml)
+
 A small CLI app to export [Kobo] clippings.
 
 Example:
