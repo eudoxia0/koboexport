@@ -35,6 +35,6 @@ fn main() -> Result<()> {
         print!("{}", text);
         first = false;
     }
-    println!("");
+    println!();
     Ok(())
 }
