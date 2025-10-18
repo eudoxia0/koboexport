@@ -34,19 +34,22 @@ fn main() -> Result<()> {
         eprintln!("Error opening database at {:?}: {}", db_path, e);
         e
     })?;
-    let sql = "select Text from Bookmark where Text is not null order by DateCreated asc;";
+    let sql =
+        "select VolumeID, Text from Bookmark where Text is not null order by DateCreated asc;";
     let mut stmt = conn.prepare(sql)?;
     let bookmarks = stmt.query_map([], |row| {
-        let text: String = row.get(0)?;
-        Ok(text)
+        let volume_id: String = row.get(0)?;
+        let text: String = row.get(1)?;
+        let title = volume_id.rsplit('/').next().unwrap().to_owned();
+        Ok((title, text))
     })?;
     let mut first = true;
     for bookmark in bookmarks {
-        let text = bookmark?;
+        let (title, text) = bookmark?;
         if !first {
             println!("\n\n---\n");
         }
-        print!("{}", text);
+        print!("Title: {title}\n\n{}", text);
         first = false;
     }
     println!();
