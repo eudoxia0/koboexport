@@ -3,6 +3,7 @@ name = "koboexport"
 version = "0.1.0"
 edition = "2024"
 license = "Apache-2.0"
+description = "A tiny Rust app to export Kobo clippings."
 
 [dependencies]
 clap = { version = "4.5.49", features = ["derive"] }
