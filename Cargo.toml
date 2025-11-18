@@ -7,7 +7,7 @@ description = "A tiny Rust app to export Kobo clippings."
 
 [dependencies]
 clap = { version = "4.5.49", features = ["derive"] }
-rusqlite = "0.37.0"
+rusqlite = { version = "0.37.0", features = ["bundled"] }
 
 [profile.release]
 strip = "symbols"
