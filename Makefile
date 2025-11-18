@@ -5,9 +5,8 @@ BINDIR = $(PREFIX)/bin
 all: koboexport
 
 koboexport: Cargo.toml Cargo.lock src/main.rs
-	cargo build --release --target-dir __build
-	cp __build/release/koboexport koboexport
-	rm -rf __build
+	cargo build --release
+	cp target/release/koboexport koboexport
 
 .PHONY: install
 install: koboexport
@@ -21,5 +20,4 @@ uninstall:
 .PHONY: clean
 clean:
 	rm -f koboexport
-	rm -rf __build
 	cargo clean
